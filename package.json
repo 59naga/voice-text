@@ -1,0 +1,46 @@
+{
+  "name": "voice-text",
+  "version": "0.0.0",
+  "description": "VoiceText Web APIのクライアントライブラリ",
+
+  "browser": {
+    "./src": false
+  },
+  "scripts": {
+    "start": "jasminetea --watch",
+    "test": "jasminetea --lint --cover --report",
+
+    "prepublish": "node -e \"if(process.env.TRAVIS){}else{process.exit(1)}\" && npm run compile || echo skip prepublish",
+    "compile": "coffee --bare --compile index.coffee",
+    "postcompile": "coffee --output lib --bare --compile src"
+  },
+  "config": {
+    "ghooks": {
+      "pre-commit": "npm test"
+    }
+  },
+
+  "dependencies": {
+    "bluebird": "^2.9.34",
+    "request": "^2.60.0"
+  },
+  "devDependencies": {
+    "ghooks": "^0.3.2",
+    "jasminetea": "^0.2.1",
+    "object-parser-cli": "0.0.1-alpha.1"
+  },
+
+  "keywords": [
+    "voicetext"
+  ],
+  "author": "59naga <i59naga@icloud.com> (http://berabou.me)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/59naga/voice-text.git"
+  },
+  "bugs": {
+    "url": "https://github.com/59naga/voice-text/issues"
+  },
+  "homepage": "https://github.com/59naga/voice-text#readme"
+}
