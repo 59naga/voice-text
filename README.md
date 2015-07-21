@@ -1,7 +1,5 @@
 # VoiceText [![NPM version][npm-image]][npm] [![Build Status][travis-image]][travis] [![Coverage Status][coveralls-image]][coveralls]
 
-[![Sauce Test Status][sauce-image]][sauce]
-
 > [VoiceText Web API](https://cloud.voicetext.jp/webapi/docs/api) のクライアントライブラリ
 
 ## Installation
@@ -45,7 +43,6 @@ voiceText
 .set('speed','200')
 .set('volume','200')
 .getUri()
-
 // https://YOUR_API_KEY:@api.voicetext.jp/v1/tts?text=%E3%81%BB%E3%81%92%E3%81%BB%E3%81%92&speaker=bear&format=ogg&emotion=happiness&emotion_level=2&pitch=200&speed=200&volume=200
 
 voiceText.get('speaker'); // bear
