@@ -65,7 +65,8 @@ $ cd voice-text
 ```
 
 * `npm install`で依存モジュールを解消します
-* `npm test`コマンドでテストが通ることを確認します（環境変数`VOICETEXT_APIKEY`にAPIキーの設定が必要）
+* 環境変数`VOICETEXT_APIKEY`に、自分のAPIキーを設定します
+* `npm test`コマンドでテストが通ることを確認します
 
 ```bash
 $ npm install
@@ -76,6 +77,25 @@ $ npm test
 # 5 specs, 0 failures
 # ...
 ```
+
+`src`を変更して、改善案や機能の追加を行います。メソッドを追加した場合は、対応するテストを`test`内に追加してください。
+変更点は[ATOM/Git Commit Messages](https://github.com/atom/atom/blob/master/CONTRIBUTING.md#git-commit-messages)に準拠して記入します。
+
+```bash
+$ npm commit -am ':art: 追加：.hogeMethod'
+```
+
+`git commit`で`npm test`が通ることを確認します（[ghooks](https://github.com/gtramontina/ghooks)経由）。
+
+> テストには[jasminetea](https://github.com/59naga/jasminetea)を使用します。
+
+```bash
+# > jasminetea --lint --cover --report
+# 5 specs, 0 failures
+# ...
+```
+
+さいごに、変更内容をpushしたあと、[プルリクエストを作成します](https://github.com/59naga/voice-text/pulls)。
 
 License
 ---
