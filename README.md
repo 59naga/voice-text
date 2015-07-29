@@ -54,6 +54,29 @@ voiceText.fetchVoice()
 });
 ```
 
+# テスト／プルリクエスト
+
+* このページ右上の`Fork`から、このレポジトリをForkします
+* Forkした、自身がオーナーのレポジトリをcloneします
+
+```bash
+$ git clone https://github.com/your-name/voice-text.git
+$ cd voice-text
+```
+
+* `npm install`で依存モジュールを解消します
+* `npm test`コマンドでテストが通ることを確認します（環境変数`VOICETEXT_APIKEY`にAPIキーの設定が必要）
+
+```bash
+$ npm install
+
+$ export VOICETEXT_APIKEY=YOUR_API_KEY
+
+$ npm test
+# 5 specs, 0 failures
+# ...
+```
+
 License
 ---
 [MIT][License]
