@@ -1,0 +1,20 @@
+build: off
+deploy: off
+
+# Ignore version tags
+branches:
+  except:
+  - /^v[0-9]/
+
+environment:
+  nodejs_version: "4"
+
+install:
+  - ps: Install-Product node $env:nodejs_version
+  - npm install npm@3 --global
+  - npm install
+
+test_script:
+  - node --version
+  - npm --version
+  - npm test

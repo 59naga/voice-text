@@ -1,0 +1,17 @@
+{
+  "presets": [
+    "es2015",
+    "stage-1"
+  ],
+  "plugins": [
+    "transform-object-assign",
+    "add-module-exports"
+  ],
+  "env": {
+    "development": {
+      "presets": [
+        "power-assert"
+      ]
+    }
+  }
+}

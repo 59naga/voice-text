@@ -1,0 +1,46 @@
+notifications:
+  email: false
+
+# Quick boot options
+sudo: false
+cache:
+  directories:
+    - node_modules
+
+# Ignore version tags
+branches:
+  except:
+    - /^v[0-9]/
+
+env:
+  global:
+    # CODECLIMATE_REPO_TOKEN
+    - secure: phqsnYbbGiWjcap2f3g6cMWgoYMoYt5ZU7QCND/xEqqqcvt+FTsNG7J7YcuJTvJZp1ldyMQzAIR8D1/0cVMKADJt+uUJusm9zG9o9PfGex5AJ4Cch9VwPurUmyUr6EXGsHO0wT8LVM6b8kkjP2X7xO01cCCSQsCKehImyHbjoOo/KBvPaLpV/5EXnDGZAofDnigYttMsGzx8JqHp4rfSqmN9in+IrEVfglraEpkLq7AgnZcA+t0Xc8hCuk9IPSxBrIopvC/TRSzFhwX8qQgLPiHIG8sfjapAOXVVbWtWm/P9aFOKdCR/hBaSg7PJnxYhhggw/SHf/pwT6QJyQ9vRKU0PEJlF/9df16uqgbTr/C27E7OsCYu3BtkheKRpFXCAxXVZ1p4qQISZibPgZaNMQImZQO/8BYfXicnP+9n/CrXBIyY96eHb2x40EbzBFRrfLBUzzvtB+rJLrKyNSp865vztBGV+MdJRPp7QxIB/KmN5Izn8AzZN8okKy/bbMc1yAyjH5cBPWrSMlMc2KMcHJfc1qgLB/iPUCtCNBXHLJHVpxJuDTMK1ybyddzbj1HvBtxpE26SJ0VJzCIomn1BKi7Mwsr82KL0PfzWqQWrdYK9aoEi6nkIq29m0g/SlMJVNRErkcWFx6ZPQa9GyPrnnak9/NRF95MemK+QXzjZEGGE=
+    # VOICETEXT_APIKEY
+    - secure: qwxiVpzacJetjV/xV6mASgrSKAINS7pE6ehR862s3ykLM5Q+LRDVnJtCXkvHDbh/ktYCz0Gm64FEfuGB0qYStZiMRg5mzXqlsNAdD6RvKb5ljPVnAJbzoM4Q5CWyKGp8yV1dw25T9OxOQQAn6mFWUV75k84J4FhFtSvS9lbmM3UYfJR7D71oRl6GtQlqNftl4jQLmUyHMK44VcDVuCrAKgYZbCcAL1jFEcWlxAWwlMlSr/d95/4crwbx3PCO9mLFHUV9LToS/2ZuSPfy8dDQRCCMUlUY+pJh/fgSOqYKH0z2wQPOdy9KK37qkC1U2HOzoL2mN0qhjc07+Hzu6rvrAdNOWur02lHvJA0nPDLuZzDtN80LwXjgXVYU/N1aNUtjXokUvUFIEdbVdgqmPvafjIdzovSr0OMYyMZDGnGGKeX1gLOlr0d7nLg6+nkAiSqaHP9Py7HBvb0lhYeyRHDULT210ATlevv7d95H4QK5dkmI6H2dzzGhmrkLY7wvOKwltrYwIpdwrRgE+PagNbl7MbGOoiggHVX9ACq/QggPyC5VlYRNVDS8wRKXFz5nVHNsUkLhOTJsYB0jtyWMlpSk2R5YePE+9LcvIC0JPHEaiYVyGgmgPv8wczUGHnpaT232sTDyySa+i1GTkYtgNIP+zazwjgXE0XqtAD9xK14/5iw=
+
+# Language options
+language: node_js
+before_install:
+  - if [[ `npm -v` != 3* ]]; then npm i -g npm@3; fi
+node_js:
+  - 4
+  - 5
+  - 6
+before_script:
+  - npm prune
+script:
+  - npm run cover
+  - npm run lint
+
+# Npm publish options
+before_deploy:
+  - npm run build
+deploy:
+  skip_cleanup: true # keep the devDependencies
+  provider: npm
+  email: i59naga@icloud.com
+  api_key:
+    secure: Ks8ma4wtlv1R1d999NoDlO/AwdXzbjw79YB5ooUi1hsTNDPJcXe9kSEm3uUrNrMxsDLGhYukQCpCtcklosMX97dzOOqqF8UA3rubk3XoZfCYMTLO0nwPmnNj50+p+dvkT5nG91RS0O9itkoLOM9fahvODlzpeN7b2HZ9pLQM32U82YAQG/CYO2zcPrjUtn2ldCCBUlQbACDB1sunFb9VprRNyPXlMHBUeC/+zyzub00i0Gjn6x3Fg8oH9pYIpTeqn3/HVXhI1LXaBEGFsL2UKtTtFTol2cRoUa4m/H49xWYT87yZg9OIEGbndHMe3ioJnEcGnAj6W/2hrM+bdKby/OZGzdJ+1NZllUVqfYuX0gKwvrDOoCFQ1FfSUO6mptLwxS3DUEhcZPJFrZ571w2mrxStPeFWgyDkr0jyYVobO1Z0B+Gc2hLyB7aE6wU2orH2MfbENFZqL+bhZdfo/YFEiOezguZpRGZSZ4TIpt7QKHBZRKxJogwDHnckyIzcxg84RlE4TxmEGxyGtNzoODFGl+aW6Ae9odW/2IpB2Gm31DXOY15kRW6rK652gHLVDUttiqLCHprLTt40KN7t3g+NieESkAzgy7xTnBIyIVVnpfcszKkOOwGZBsnoUYVbzvpxnFnI1L1GLBKkpQyyIuv7RVKPOGOtUbC6h9NSaTPFb2I=
+  on:
+    node: 4
