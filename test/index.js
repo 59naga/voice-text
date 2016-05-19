@@ -86,7 +86,7 @@ describe('VoiceText', () => {
       );
       assert(
         throws(() => voiceText.validate({ text: 'foo', speaker: 'johndue' }))
-        .message.match('"speaker" must be one of \\[hikari, haruka, takeru, santa, bear\\]')
+        .message.match('"speaker" must be one of \\[hikari, haruka, takeru, santa, bear, show\\]')
       );
       assert(
         throws(() => voiceText.validate({ text: 'foo', format: 'mp3' }))
