@@ -1,6 +1,6 @@
 {
   "name": "voice-text",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "VoiceText Web API client",
   "main": "lib",
   "files": [
