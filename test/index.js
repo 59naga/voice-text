@@ -42,7 +42,7 @@ describe('VoiceText', () => {
       assert.deepStrictEqual(
         voiceText.validate({
           text: repeating('あ', 200),
-          speaker: 'beer',
+          speaker: 'bear',
           format: 'aac',
           emotion: 'sadness',
           emotion_level: '4',
@@ -52,7 +52,7 @@ describe('VoiceText', () => {
         }),
         {
           text: repeating('あ', 200),
-          speaker: 'beer',
+          speaker: 'bear',
           format: 'aac',
           emotion: 'sadness',
           emotion_level: 4,
@@ -86,7 +86,7 @@ describe('VoiceText', () => {
       );
       assert(
         throws(() => voiceText.validate({ text: 'foo', speaker: 'johndue' }))
-        .message.match('"speaker" must be one of \\[hikari, haruka, takeru, santa, beer\\]')
+        .message.match('"speaker" must be one of \\[hikari, haruka, takeru, santa, bear\\]')
       );
       assert(
         throws(() => voiceText.validate({ text: 'foo', format: 'mp3' }))
