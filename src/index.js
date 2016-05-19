@@ -12,7 +12,7 @@ export class VoiceText {
   // @see https://github.com/hapijs/joi/blob/v8.0.5/API.md
   static validationSchema = Joi.object({
     text: Joi.string().min(1).max(200).required(),
-    speaker: Joi.string().valid('hikari', 'haruka', 'takeru', 'santa', 'bear').default('hikari'),
+    speaker: Joi.string().valid('hikari', 'haruka', 'takeru', 'santa', 'bear', 'show').default('hikari'),
     format: Joi.string().valid('wav', 'ogg', 'aac').default('ogg'),
     emotion: Joi.string().valid('happiness', 'anger', 'sadness'),
     emotion_level: Joi.number().min(1).max(4).when('emotion', { is: true, then: Joi.default(2) }),
